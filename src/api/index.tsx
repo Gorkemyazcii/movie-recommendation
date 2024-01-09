@@ -1,5 +1,3 @@
-import { Category } from "@/types";
-
 const options = {
   method: "GET",
   headers: {
@@ -49,8 +47,3 @@ export async function getMovie(movieId: string) {
   );
   return await res.json();
 }
-// const getTopRatedMovies = async () => {
-//   const res = await fetch(topRatedUrl, options);
-
-//   return await res.json();
-// };
