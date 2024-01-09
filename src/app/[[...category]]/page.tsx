@@ -1,5 +1,3 @@
-// "use client";
-
 import React from "react";
 import HomeContainer from "@/containers/home";
 import {
@@ -10,11 +8,6 @@ import {
   getUpcomingMovies,
 } from "@/api";
 
-import Movies from "@/mocks/movies.json";
-import { Category, Movie } from "@/types";
-// import { textAtom, getPopularMovies } from "@/store";
-// import { useAtom } from "jotai";
-
 export default async function HomePage({
   params,
 }: {
@@ -22,24 +15,16 @@ export default async function HomePage({
 }) {
   let selectedCategory: any;
 
-  const popularPromise = getPopularMovies();
-  const topRatedPromise = getTopRatedMovies();
-  const upcomingPromise = getUpcomingMovies();
-  const categoriesPromise = getCategories();
-
-  // const { results: popularMovies } = await getPopularMovies();
-  // const { results: topRatedMovies } = await getTopRatedMovies();
-
   const [
     { results: popularMovies },
     { results: topRatedMovies },
     { results: upcomingMovies },
     { genres: categories },
   ] = await Promise.all([
-    popularPromise,
-    topRatedPromise,
-    upcomingPromise,
-    categoriesPromise,
+    getPopularMovies(),
+    getTopRatedMovies(),
+    getUpcomingMovies(),
+    getCategories(),
   ]);
 
   if (params.category?.length > 0) {
