@@ -1,14 +1,11 @@
 import React from "react";
 
-import Movies from "@/mocks/movies.json";
-import Genres from "@/mocks/genres.json";
-
 import FeaturedMovie from "@/components/featured-movie";
 import Categories from "@/components/categories";
 import MoviesSection from "@/components/movies-section";
 import { Category, Movie } from "@/types";
 
-function HomeContainer({
+export default function HomeContainer({
   popularMovies = [],
   topRatedMovies = [],
   upcomingMovies = [],
@@ -22,7 +19,7 @@ function HomeContainer({
   selectedCategory: { id: string; movies: Movie[] };
 }) {
   return (
-    <div>
+    <React.Fragment>
       <FeaturedMovie movie={popularMovies?.[0]} />
       <Categories categories={categories} />
       {selectedCategory.id && (
@@ -48,16 +45,6 @@ function HomeContainer({
         movies={upcomingMovies.slice(0, 18)}
         title="Up coming Films"
       />
-    </div>
+    </React.Fragment>
   );
 }
-export default HomeContainer;
-// {selectedCategory.movies.lenght > 0 && (
-//   <MoviesSection
-//     movies={selectedCategory.movies}
-//     title={
-//       Genres.genres.find((genre) => `${genre.id}` === selectedCategory.id)
-//         .name
-//     }
-//   />
-// )}
