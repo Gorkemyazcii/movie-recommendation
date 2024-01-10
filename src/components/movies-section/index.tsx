@@ -12,7 +12,7 @@ export default function MoviesSection({
   title: string;
   movies: Movie[];
 }) {
-  const itemsPerPage = 6; // Sayfadaki film sayısı
+  const itemsPerPage = 6; // Number of movies on the page
   const [currentPage, setCurrentPage] = useState(0);
 
   const totalPages = Math.ceil(movies.length / itemsPerPage);
@@ -34,7 +34,7 @@ export default function MoviesSection({
   const visibleMovies = movies.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <div className="mt-9">
+    <div className="mt-10">
       <h3 className="mb-3 uppercase text-2xl tracking-tighter">{title}</h3>
 
       <div className="flex gap-8 w-full items-center h-full group ">
