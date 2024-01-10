@@ -33,7 +33,7 @@ export default async function HomePage({
   }
 
   return (
-    <div>
+    <React.Fragment>
       <HomeContainer
         popularMovies={popularMovies}
         topRatedMovies={topRatedMovies}
@@ -44,6 +44,6 @@ export default async function HomePage({
           movies: selectedCategory ? selectedCategory.slice(0, 18) : [],
         }}
       />
-    </div>
+    </React.Fragment>
   );
 }
