@@ -5,12 +5,12 @@ import MovieSectionLoading from "@/components/movies-section/loading";
 
 export default function Loading() {
   return (
-    <div>
+    <React.Fragment>
       <FeaturedMovieLoading />
       <CategoriesLoading />
       <MovieSectionLoading />
       <MovieSectionLoading />
       <MovieSectionLoading />
-    </div>
+    </React.Fragment>
   );
 }
