@@ -29,3 +29,5 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Project image
 
 ![image](https://github.com/Gorkemyazcii/React-Next.js--Study/assets/123131846/83ca649b-b48a-44e5-a11c-db61a9629d02)
+
+
