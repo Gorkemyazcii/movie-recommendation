@@ -9,10 +9,10 @@ export default function FeaturedMovie({ movie = {} }) {
 
   return (
     <div className="flex flex-col gap-6 mt-14 mb-14 ">
-      <h1 className="text-7xl uppercase font-black h-auto max-w-[1300px] mb-10  ">
+      <h1 className="text-7xl uppercase font-black h-auto max-w-[1300px] mb-10 max-md:text-3xl ">
         {title}
       </h1>
-      <p className="text-2xl max-w-[1440px] lg:line-clamp-2 xl:line-clamp-none ">
+      <p className="text-2xl max-w-[1440px] xl:line-clamp-none max-md:text-lg max-md:line-clamp-1 max-lg:line-clamp-2">
         {overview}
       </p>
       <div className="flex gap-3">
