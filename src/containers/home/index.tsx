@@ -20,7 +20,7 @@ export default function HomeContainer({
 }) {
   return (
     <React.Fragment>
-      <FeaturedMovie movie={popularMovies?.[0]} />
+      <FeaturedMovie movie={popularMovies?.[1]} />
       <Categories categories={categories} />
       {selectedCategory.id && (
         <MoviesSection
