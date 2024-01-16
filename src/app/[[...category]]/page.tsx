@@ -28,7 +28,7 @@ export default async function HomePage({
   ]);
 
   if (params.category?.length > 0) {
-    const { results } = await getSingleCategory(params.category[0]);
+    const { results } = await getSingleCategory(params.category[1]);
     selectedCategory = results;
   }
 
