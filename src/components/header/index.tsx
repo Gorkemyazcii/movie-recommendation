@@ -10,9 +10,11 @@ export default function Header() {
           <FaPlayCircle /> <div>GORKEM</div>
         </Link>
         <nav className="mr-10 flex space-x-10 text-lg max-md:text-sm">
-          <Link href="#">Movies</Link>
-          <Link href="#">Anime</Link>
-          <Link href="#">Series</Link>
+          <Link href="https://github.com/Gorkemyazcii">Github</Link>
+          <Link href="https://www.linkedin.com/in/gorkem-yazici/">
+            Linkedin
+          </Link>
+          <Link href="https://www.instagram.com/gorkemyazcii/">Instagram</Link>
         </nav>
       </div>
     </header>
