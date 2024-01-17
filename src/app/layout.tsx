@@ -18,10 +18,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={clsx(
-          inter.className,
-          "text-base flex flex-col ml-10 mr-10 bg-no-repeat bg-cover bg-center  "
-        )}
+        className={clsx(inter.className, "text-base flex flex-col ml-10 mr-10")}
       >
         <Header />
         <main>{children}</main>
