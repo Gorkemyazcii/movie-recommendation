@@ -13,11 +13,18 @@ export default function Header() {
           </div>
         </Link>
         <nav className="mr-10 flex space-x-10 text-lg max-md:text-sm">
-          <Link href="https://github.com/Gorkemyazcii">Github</Link>
-          <Link href="https://www.linkedin.com/in/gorkem-yazici/">
+          <Link href="https://github.com/Gorkemyazcii" target="_blank">
+            Github
+          </Link>
+          <Link
+            href="https://www.linkedin.com/in/gorkem-yazici/"
+            target="_blank"
+          >
             Linkedin
           </Link>
-          <Link href="https://www.instagram.com/gorkemyazcii/">Instagram</Link>
+          <Link href="https://www.instagram.com/gorkemyazcii/" target="_blank">
+            Instagram
+          </Link>
         </nav>
       </div>
     </header>
