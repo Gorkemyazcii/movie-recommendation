@@ -18,9 +18,12 @@ export default function HomeContainer({
   categories: Category[];
   selectedCategory: { id: string; movies: Movie[] };
 }) {
+  const index = Math.floor(Math.random() * 20);
+  console.log(index);
+
   return (
     <React.Fragment>
-      <FeaturedMovie movie={popularMovies?.[1]} />
+      <FeaturedMovie movie={popularMovies?.[index]} />
       <Categories categories={categories} />
       {selectedCategory.id && (
         <MoviesSection
