@@ -1,5 +1,4 @@
 import React from "react";
-
 import FeaturedMovie from "@/components/featured-movie";
 import Categories from "@/components/categories";
 import MoviesSection from "@/components/movies-section";
@@ -19,7 +18,6 @@ export default function HomeContainer({
   selectedCategory: { id: string; movies: Movie[] };
 }) {
   const index = Math.floor(Math.random() * 20);
-  console.log(index);
 
   return (
     <React.Fragment>

@@ -2,24 +2,83 @@ import { Category } from "@/types";
 import Link from "next/link";
 import React from "react";
 import HorizontalScroll from "../horizontalScroll";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 export default function Categories({ categories }: { categories: Category[] }) {
+  const carouselItems = [];
+  for (let i = 0; i < categories.length; i += 5) {
+    carouselItems.push(categories.slice(i, i + 5));
+  }
+
   return (
-    <HorizontalScroll>
-      <div className="flex w-full px-4 lg:h-16 lg:gap-12 h-12 gap-3 lg:text-base text-sm lg:duration-500 max-lg:duration-500 ">
-        {categories.slice(0, 20).map((category: Category, index: number) => {
-          return (
-            <Link
-              key={index}
-              href={`${category.id}`}
-              passHref
-              className="flex items-center justify-center bg-black bg-opacity-50 px-8 py-2 rounded-xl "
-            >
-              {category.name}
-            </Link>
-          );
-        })}
-      </div>
-    </HorizontalScroll>
+    <Carousel className="mx-20">
+      <CarouselContent>
+        {carouselItems.map((carouselItem, index) => (
+          <CarouselItem key={index} className="flex justify-center gap-5">
+            {carouselItem.map((category) => (
+              <Link href={`/${category.id}`} passHref key={category.id} className="bg-black p-5 rounded-lg bg-opacity-65">
+                {category.name}
+              </Link>
+            ))}
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   );
 }
+
+// import { Category } from "@/types";
+// import Link from "next/link";
+// import React from "react";
+// import HorizontalScroll from "../horizontalScroll";
+// import {
+//   Carousel,
+//   CarouselContent,
+//   CarouselItem,
+//   CarouselNext,
+//   CarouselPrevious,
+// } from "@/components/ui/carousel"
+
+
+// export default function Categories({ categories }: { categories: Category[] }) {
+//   return (
+    
+      
+//       <Carousel className="mx-20">
+//             <CarouselContent>
+//             {/* .slice(0, 20) */}
+//             {categories.map((category: Category, index: number) => {
+//   return (
+//     <CarouselItem key={index} className="flex justify-center gap-5">
+//           <Link href={`/${category.id}`} passHref>
+//             {category.name}
+//           </Link>
+//         </CarouselItem>
+//   );
+// })}
+             
+//              </CarouselContent>
+//              <CarouselPrevious />
+//              <CarouselNext />
+//            </Carousel>
+      
+  
+//   );
+// }
+// {Array.from({ length: 5 }).map((_, index) => (
+//   <CarouselItem key={index} className="basis-1/3 h-[400px] ">
+//     <img
+//       src={`https://http.cat/${index * 100 + 200}`}
+//       alt=""
+//       className="object-center object-cover w-full h-full"
+//     />
+//   </CarouselItem>
+// ))}
