@@ -31,7 +31,7 @@ export default function MoviesSection({
           {movieItems.map((movieItem, movieItemIndex) => (
             <CarouselItem key={movieItemIndex} className="flex gap-5 w-full">
               {movieItem.map((movie) => (
-                <Link href={`/movie/${movie.id}`} passHref key={movie.id}>
+                <Link key={movie.id} href={`/movie/${movie.id}`} passHref >
                   <div className="relative overflow-hidden rounded-lg h-full w-full hover:rounded-none hover:scale-105 duration-300 snap-center">
                     <Image
                       width={300}
