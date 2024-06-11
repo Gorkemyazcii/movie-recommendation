@@ -22,7 +22,7 @@ export default function Categories({ categories }: { categories: Category[] }) {
         {carouselItems.map((carouselItem, index) => (
           <CarouselItem key={index} className="flex justify-center gap-5">
             {carouselItem.map((category) => (
-              <Link href={`/${category.id}`} passHref key={category.id} className="bg-black p-5 rounded-lg bg-opacity-65">
+              <Link href={`/${category.id}`} passHref key={category.id} className="bg-black p-5 rounded-lg bg-opacity-65 hover:bg-white hover:text-black duration-500">
                 {category.name}
               </Link>
             ))}
