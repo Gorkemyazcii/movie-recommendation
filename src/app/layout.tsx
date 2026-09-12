@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   description: "Movie recommendation site",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#000000",
+};
+
 export default async function RootLayout({
   children,
 }: {
@@ -18,7 +24,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body
-        className={clsx(inter.className, "text-base flex flex-col ml-10 mr-10")}
+        className={clsx(
+          inter.className,
+          "text-base flex min-h-screen flex-col px-4 sm:px-6 lg:px-10"
+        )}
       >
         <Header />
         <main>{children}</main>

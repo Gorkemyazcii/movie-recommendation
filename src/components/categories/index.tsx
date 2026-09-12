@@ -10,27 +10,28 @@ import {
 } from "@/components/ui/carousel";
 
 export default function Categories({ categories }: { categories: Category[] }) {
-  const carouselItems = [];
-  for (let i = 0; i < categories.length; i += 5) {
-    carouselItems.push(categories.slice(i, i + 5));
-  }
-
   return (
-    <Carousel className="mx-20">
-      <CarouselContent>
-        {carouselItems.map((carouselItem, index) => (
-          <CarouselItem key={index} className="flex justify-center gap-5">
-            {carouselItem.map((category) => (
-              <Link href={`/${category.id}`} passHref key={category.id} className="bg-black p-5 rounded-lg bg-opacity-65 hover:bg-white hover:text-black duration-500">
-                {category.name}
-              </Link>
-            ))}
+    // Sabit 5'li gruplama yerine her kategori kendi slaytında: genişlik ne olursa
+    // olsun ekrana kaç tane sığıyorsa o kadarı görünür.
+    <Carousel
+      opts={{ align: "start", dragFree: true, slidesToScroll: "auto" }}
+      className="mx-0 sm:mx-14 lg:mx-20"
+    >
+      <CarouselContent className="-ml-2 sm:-ml-4">
+        {categories.map((category) => (
+          <CarouselItem key={category.id} className="basis-auto pl-2 sm:pl-4">
+            <Link
+              href={`/${category.id}`}
+              passHref
+              className="block whitespace-nowrap bg-black px-4 py-3 rounded-lg bg-opacity-65 text-sm hover:bg-white hover:text-black duration-500 sm:px-5 sm:py-4 sm:text-base"
+            >
+              {category.name}
+            </Link>
           </CarouselItem>
         ))}
       </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
+      <CarouselPrevious className="hidden sm:inline-flex" />
+      <CarouselNext className="hidden sm:inline-flex" />
     </Carousel>
   );
 }
-

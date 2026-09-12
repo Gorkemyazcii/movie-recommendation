@@ -4,9 +4,16 @@ import styles from "./styles.module.css";
 export default function Skeleton({
   width,
   height,
+  className = "",
 }: {
-  width: number;
-  height: number;
+  width?: number | string;
+  height?: number | string;
+  className?: string;
 }) {
-  return <div className={styles.skeleton} style={{ width, height }}></div>;
+  return (
+    <div
+      className={`${styles.skeleton} ${className}`}
+      style={{ width, height }}
+    ></div>
+  );
 }

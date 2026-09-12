@@ -5,39 +5,48 @@ import React from "react";
 import { FaPlus } from "react-icons/fa";
 
 export default function FeaturedMovie({ movie = {} }) {
-  const { poster_path, title, overview } = movie as Movie;
+  const { poster_path, backdrop_path, title, overview } = movie as Movie;
+  // Yatay "backdrop" görseli hero için doğru oran; yoksa afişe düşülür.
+  const heroPath = backdrop_path || poster_path;
 
   return (
-    <div className="flex flex-col gap-6 mt-14 mb-14 ">
-      <h1 className="text-7xl uppercase font-black h-auto max-w-[1300px] mb-10 max-md:text-3xl ">
+    <div className="flex flex-col gap-4 mt-8 mb-8 sm:gap-6 sm:mt-14 sm:mb-14">
+      <h1 className="text-3xl uppercase font-black leading-tight max-w-[1300px] mb-4 sm:text-5xl sm:mb-8 lg:text-7xl lg:mb-10">
         {title}
       </h1>
-      <p className="text-2xl max-w-[1440px] xl:line-clamp-none max-md:text-lg max-md:line-clamp-1 max-lg:line-clamp-2">
+      <p className="text-sm max-w-[1440px] line-clamp-3 sm:text-lg sm:line-clamp-4 lg:text-2xl xl:line-clamp-none">
         {overview}
       </p>
-      <div className="flex gap-3">
+      <div className="flex items-center gap-3">
         <Link
-          className="flex items-center justify-center bg-slate-200 text-gray-900 px-20 py-2 rounded-2xl text-2xl font-bold"
+          className="flex flex-1 items-center justify-center bg-slate-200 text-gray-900 px-6 py-3 rounded-2xl text-lg font-bold sm:flex-none sm:px-16 sm:text-xl lg:px-20 lg:text-2xl"
           href="#"
         >
           Play
         </Link>
-        <button className="flex p-3 items-center justify-center border-2 border-solid border-slate-200  text-slate-200 rounded-full text-xl font-bold">
+        <button
+          aria-label="Listeme ekle"
+          className="flex shrink-0 p-3 items-center justify-center border-2 border-solid border-slate-200 text-slate-200 rounded-full text-lg font-bold sm:p-4 sm:text-xl"
+        >
           <FaPlus />
         </button>
       </div>
 
-      <div className="h-auto -z-20  object-cover">
-        <div className="absolute top-0 -z-10 left-0 bg-black opacity-50 ">
+      {/* Tam genişlik arka plan. Üst öğelerin hiçbiri "relative" olmadığı için
+          bu kutu viewport'a göre konumlanır ve kenar boşluklarının dışına taşar. */}
+      {heroPath && (
+        <div className="absolute inset-x-0 top-0 -z-10 h-[75vh] min-h-[440px] overflow-hidden sm:h-[80vh]">
           <Image
-            unoptimized
-            src={`https://image.tmdb.org/t/p/original${poster_path}`}
-            alt={title}
-            width={1920}
-            height={700}
+            src={`https://image.tmdb.org/t/p/w1280${heroPath}`}
+            alt={title ?? ""}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-top"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/70 to-black" />
         </div>
-      </div>
+      )}
     </div>
   );
 }
